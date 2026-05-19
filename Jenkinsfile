@@ -18,12 +18,9 @@ pipeline {
         }
        stage('Tests Unitaires') {
             steps {
-                bat '''
-                set JAVA_HOME=C:\\Java\\jdk-17
-                set PATH=%JAVA_HOME%\\bin;%PATH%
-                mvn test
-                '''
+                bat 'mvn test'
             }
+        }
         }
             post {
                 always {
