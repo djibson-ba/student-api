@@ -16,10 +16,15 @@ pipeline {
                 bat 'mvn clean package -DskipTests'
             }
         }
-        stage('Tests Unitaires') {
+       stage('Tests Unitaires') {
             steps {
-                bat 'mvn test'
+                bat '''
+                set JAVA_HOME=C:\\Java\\jdk-17
+                set PATH=%JAVA_HOME%\\bin;%PATH%
+                mvn test
+                '''
             }
+        }
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
