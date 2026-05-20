@@ -1,6 +1,6 @@
 pipeline {
     agent any
-   }
+
     tools {
         maven 'Maven-3.9'
         jdk 'JDK-17'
@@ -37,10 +37,12 @@ pipeline {
                 bat 'mvn verify'
             }
             post {
-            always {
-                archiveArtifacts artifacts: 'target/site/jacoco/**', allowEmptyArchive: true
+                always {
+                    archiveArtifacts artifacts: 'target/site/jacoco/**', allowEmptyArchive: true
+                }
             }
         }
+
         stage('Archivage') {
             steps {
                 archiveArtifacts artifacts: 'target/*.jar',
