@@ -37,16 +37,10 @@ pipeline {
                 bat 'mvn verify'
             }
             post {
-                always {
-                    jacoco(
-                        execPattern: 'target/*.exec',
-                        classPattern: 'target/classes',
-                        sourcePattern: 'src/main/java'
-                    )
-                }
+            always {
+                archiveArtifacts artifacts: 'target/site/jacoco/**', allowEmptyArchive: true
             }
         }
-
         stage('Archivage') {
             steps {
                 archiveArtifacts artifacts: 'target/*.jar',
