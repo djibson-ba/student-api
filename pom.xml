@@ -23,26 +23,22 @@
     </properties>
 
     <dependencies>
-        <!-- Spring Web (REST) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- Spring Data JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- Base de données H2 en mémoire (tests et dev) -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Tests : JUnit 5 + Mockito + MockMvc -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -51,34 +47,32 @@
     </dependencies>
 
     <build>
-
-         <plugin>
-             <groupId>org.apache.maven.plugins</groupId>
-             <artifactId>maven-checkstyle-plugin</artifactId>
-             <version>3.3.1</version>
-             <configuration>
-                 <configLocation>sun_checks.xml</configLocation>
-                 <consoleOutput>true</consoleOutput>
-                 <failsOnError>false</failsOnError>
-             </configuration>
-             <executions>
-                 <execution>
-                     <id>validate</id>
-                     <phase>validate</phase>
-                     <goals>
-                         <goal>check</goal>
-                     </goals>
-                 </execution>
-             </executions>
-         </plugin>
-             
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <configLocation>sun_checks.xml</configLocation>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>false</failsOnError>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+                 
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- JaCoCo : couverture de code (seuil 70 %) -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
