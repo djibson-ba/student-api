@@ -51,6 +51,27 @@
     </dependencies>
 
     <build>
+
+         <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-checkstyle-plugin</artifactId>
+             <version>3.3.1</version>
+             <configuration>
+                 <configLocation>sun_checks.xml</configLocation>
+                 <consoleOutput>true</consoleOutput>
+                 <failsOnError>false</failsOnError>
+             </configuration>
+             <executions>
+                 <execution>
+                     <id>validate</id>
+                     <phase>validate</phase>
+                     <goals>
+                         <goal>check</goal>
+                     </goals>
+                 </execution>
+             </executions>
+         </plugin>
+             
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
