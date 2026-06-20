@@ -47,3 +47,17 @@ mvn verify
   "moyenne": 14.5
 }
 ```
+# Student API 
+
+Une API REST robuste pour la gestion des étudiants, développée avec Spring Boot et entièrement intégrée dans un pipeline de déploiement continu (CI/CD).
+
+## Technologies Utilisées
+* **Backend :** Java / Spring Boot
+* **Gestion de base de données :** Spring Data JPA
+* **Tests & Qualité :** JUnit, Jacoco (Rapports de couverture)
+
+## Pipeline CI/CD (DevOps)
+Ce projet intègre les bonnes pratiques de l'intégration continue :
+1. **Versionnage :** Hébergé sur GitHub.
+2. **Webhook :** Déclenchement automatique des builds à chaque `git push` via un tunnel **ngrok**.
+3. **Serveur d'intégration :** Compilé, testé et vérifié automatiquement par **Jenkins**.
